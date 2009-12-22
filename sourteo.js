@@ -8,6 +8,8 @@ var Sourteo	=	Class.create({
 	}
 	,
 	_initObservers : function(){
-		
+		$('tryButton').observe('click',function(){
+			this.shake($('text').value);
+		}.bind(this));
 	}
 });
