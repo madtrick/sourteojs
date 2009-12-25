@@ -7,9 +7,48 @@ var Sourteo	=	Class.create({
 		this._initObservers();
 	}
 	,
+	rounds	: 1,
+	executer : null,
+	timer : function(pos){
+		var value = .5 + Math.pow(Math.E,(pos - 1));
+		console.log(value);
+		return value;
+	}
+	,
+	move	: function(pos){
+		var container_height	=	$('result-box').getHeight();
+		var result_height		=	$('result').getHeight();
+		
+		new Effect.Move('result',
+		 	{	y: (container_height + result_height),
+				duration : this.timer(pos),
+				afterFinish : function(){
+					
+					new Effect.Move('result',
+				 		{	y: '-' + (container_height + result_height),
+							duration : 0.01,
+							transition : Effect.Transitions.full,
+						});
+					
+					this.shake(pos + 0.25,2)
+				
+				}.bind(this)
+			});
+	}
+	,
+	initShake : function(word){
+		$('result').innerHTML	=	word;
+		this.shake(0,2);
+	}
+	,
+	shake	: function(start,end){
+			if ( start >= end ) return;			
+			this.move(start); 
+	}
+	,
 	_initObservers : function(){
 		$('tryButton').observe('click',function(){
-			this.shake($('text').value);
+			this.initShake($('text').value);
 		}.bind(this));
 	}
 });
