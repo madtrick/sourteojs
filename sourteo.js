@@ -24,12 +24,7 @@ var Sourteo	=	Class.create({
 				duration : this.timer(pos),
 				afterFinish : function(){
 					
-					new Effect.Move('result',
-				 		{	y: '-' + (container_height + result_height),
-							duration : 0.01,
-							transition : Effect.Transitions.full,
-						});
-					
+					$('result').setStyle({ top : '0px'});
 					this.shake(pos + 0.25,2)
 				
 				}.bind(this)
