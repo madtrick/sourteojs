@@ -7,8 +7,8 @@ var Sourteo	=	Class.create({
 		this._initObservers();
 	}
 	,
-	rounds	: 1,
-	executer : null,
+	shakingItems : []
+	,
 	timer : function(pos){
 		var value = .5 + Math.pow(Math.E,(pos - 1));
 		console.log(value);
@@ -38,11 +38,14 @@ var Sourteo	=	Class.create({
 	,
 	initShake : function(word){
 		$('result').innerHTML	=	word;
+		this.shakingItems = word.split(",");
 		this.shake(0,2);
 	}
 	,
 	shake	: function(start,end){
-			if ( start >= end ) return;			
+			if ( start >= end ) return;
+			var itempos	=	Math.floor(Math.random()*this.shakingItems.size());
+			$('result').innerHTML	=	this.shakingItems[itempos];
 			this.move(start); 
 	}
 	,
