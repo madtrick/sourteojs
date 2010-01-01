@@ -49,10 +49,15 @@ var Sourteo	=	Class.create({
 		return result;
 	}
 	,
+	_spin	: function(start){
+			if ( start >= this.duration ) {
+				this._finish(start);
 				return;
 			}
+			
 			var itempos	=	Math.floor(Math.random()*this.shakingItems.size());
-			$('result').innerHTML	=	this.shakingItems[itempos];
+			this._reelContainer().update();
+			this._reelContainer().insert(this.shakingItems[itempos]);
 
 			this.move(start);
 	}
