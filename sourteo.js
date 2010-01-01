@@ -35,17 +35,12 @@ var Sourteo	=	Class.create({
 		this.spin(0);
 	}
 	,
-	finish :  function(pos){
-		var container_height	=	$('result-box').getHeight();
-		var result_height		=	$('result').getHeight();
-		new Effect.Move('result',
+	_finish :  function(pos){
+		var container_height	=	this._reelWrapper().getHeight();
+		var result_height		=	this._reelContainer().getHeight();
+		new Effect.Move(this.reelContainerName,
 		 	{	y: (container_height + result_height)/2,
 				duration : this.timer(pos),
-				afterFinish : function(){
-					
-					console.log("Finish");
-				
-				}.bind(this)
 			});
 	}
 	,
