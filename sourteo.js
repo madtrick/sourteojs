@@ -31,10 +31,8 @@ var Sourteo	=	Class.create({
 
 	}
 	,
-	initShake : function(word){
-		$('result').innerHTML	=	word;
-		this.shakingItems = word.split(",");
-		this.shake(0,2);
+	initSpin : function(word){
+		this.spin(0);
 	}
 	,
 	finish :  function(pos){
