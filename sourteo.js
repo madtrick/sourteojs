@@ -1,4 +1,6 @@
 var Sourteo	=	Class.create({
+	duration			: 2
+	, 
 	reelWrapperName		: 'sourteoReelWrapper'
 	,
 	reelContainerName	: 'sourteoReelContainer'
