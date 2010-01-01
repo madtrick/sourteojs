@@ -3,7 +3,11 @@ var Sourteo	=	Class.create({
 		this._initObservers();
 	}
 	,
-	shakingItems : []
+	reelWrapperName		: 'sourteoReelWrapper'
+	,
+	reelContainerName	: 'sourteoReelContainer'
+	,
+	shakingItems 		: []
 	,
 	timer : function(pos){
 		var value = .5 + Math.pow(Math.E,(pos - 1));
@@ -73,7 +77,20 @@ var Sourteo	=	Class.create({
 			$('result').innerHTML	=	this.shakingItems[itempos];
 
 			this.move(start);
-		
+	}
+	,
+	_reelContainer	: function(){
+		if( this._reelContainerElement == undefined)
+			this._reelContainerElement	=	$(this.reelContainerName);
+
+		return this._reelContainerElement;
+	}
+	,
+	_reelWrapper	: function(){
+		if( this._reelWrapperElement == undefined)
+			this._reelWrapperElement	=	$(this.reelWrapperName);
+			
+		return this._reelWrapperElement;
 	}
 	,
 	_initObservers : function(){
