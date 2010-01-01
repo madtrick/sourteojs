@@ -44,9 +44,11 @@ var Sourteo	=	Class.create({
 			});
 	}
 	,
-	shake	: function(start,end){
-			if ( start >= end ) {
-				this.finish(start);
+	_fadeRate : function(pos){
+		var result	=	(0.75*pos)/this.duration + 0.25;
+		return result;
+	}
+	,
 				return;
 			}
 			var itempos	=	Math.floor(Math.random()*this.shakingItems.size());
