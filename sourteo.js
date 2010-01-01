@@ -1,8 +1,4 @@
 var Sourteo	=	Class.create({
-	initialize	: function(){
-		this._initObservers();
-	}
-	,
 	reelWrapperName		: 'sourteoReelWrapper'
 	,
 	reelContainerName	: 'sourteoReelContainer'
