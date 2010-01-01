@@ -54,11 +54,30 @@ var Sourteo	=	Class.create({
 		this.shake(0,2);
 	}
 	,
+	finish :  function(pos){
+		var container_height	=	$('result-box').getHeight();
+		var result_height		=	$('result').getHeight();
+		new Effect.Move('result',
+		 	{	y: (container_height + result_height)/2,
+				duration : this.timer(pos),
+				afterFinish : function(){
+					
+					console.log("Finish");
+				
+				}.bind(this)
+			});
+	}
+	,
 	shake	: function(start,end){
-			if ( start >= end ) return;
+			if ( start >= end ) {
+				this.finish(start);
+				return;
+			}
 			var itempos	=	Math.floor(Math.random()*this.shakingItems.size());
 			$('result').innerHTML	=	this.shakingItems[itempos];
-			this.move(start); 
+
+			this.move(start);
+		
 	}
 	,
 	_initObservers : function(){
