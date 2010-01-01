@@ -8,7 +8,7 @@ var Sourteo	=	Class.create({
 	shakingItems 		: []
 	,
 	timer : function(pos){
-		var value = .5 + Math.pow(Math.E,(pos - 1));
+		var value = .01 + Math.pow(Math.E,(1.5*pos - 3));
 		console.log(value);
 		return value;
 	}
