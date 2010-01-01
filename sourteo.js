@@ -14,36 +14,21 @@ var Sourteo	=	Class.create({
 	}
 	,
 	move	: function(pos){
-		var container_height	=	$('result-box').getHeight();
-		var result_height		=	$('result').getHeight();
-		
+		var container_height	=	this._reelWrapper().getHeight();
+		var result_height		=	this._reelContainer().getHeight();
 		var time	=	this.timer(pos);
-		new Effect.Parallel([
-			new Effect.Move('result',
-			 	{	
-					sync : true,
-					y: (container_height + result_height),
-					duration : time,
-					afterFinish : function(){
-
-						$('result').setStyle({ top : '-' + result_height + 'px'});
-						this.shake(pos + 0.25,2)
-
-					}.bind(this)
-				})
-			,
-			new Effect.Fade('result',
-				{
-					sync : true,
-					duration : time/2,
-					to	: 0.2,
-					
-					afterFinish : function(){
-						$('result').appear();
-					}
-				})
-		]);
 		
+		new Effect.Move(this.reelContainerName,
+		 	{	
+				y: (container_height + result_height),
+				duration : time,
+				afterFinish : function(){
+					this._reelContainer().setStyle({ opacity : this.fadeRate(pos)});
+					this._reelContainer().setStyle({ top : '-' + result_height + 'px'});
+					this._spin(pos + 0.25);
+				}.bind(this)
+			});
+
 	}
 	,
 	initShake : function(word){
