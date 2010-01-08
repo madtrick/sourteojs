@@ -14,7 +14,6 @@ var Sourteo	=	Class.create({
 	,
 	timer : function(pos){
 		var value = .01 + Math.pow(Math.E,(1.5*pos - 3));
-		console.log(value);
 		return value;
 	}
 	,
