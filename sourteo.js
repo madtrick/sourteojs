@@ -75,10 +75,4 @@ var Sourteo	=	Class.create({
 			
 		return this._reelWrapperElement;
 	}
-	,
-	_initObservers : function(){
-		$('tryButton').observe('click',function(){
-			this.initShake($('text').value);
-		}.bind(this));
-	}
 });
