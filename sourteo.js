@@ -1,3 +1,8 @@
+/*
+*	Developed by: Farruco Sanjurjo
+*	mail: madtrick@gmail.com
+*	Version: 1.0
+*/
 var Sourteo	=	Class.create({
 	duration			: 2
 	, 
