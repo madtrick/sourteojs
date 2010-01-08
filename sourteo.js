@@ -17,13 +17,12 @@ var Sourteo	=	Class.create({
 		var container_height	=	this._reelWrapper().getHeight();
 		var result_height		=	this._reelContainer().getHeight();
 		var time	=	this.timer(pos);
-		
 		new Effect.Move(this.reelContainerName,
 		 	{	
 				y: (container_height + result_height),
 				duration : time,
 				afterFinish : function(){
-					this._reelContainer().setStyle({ opacity : this.fadeRate(pos)});
+					this._reelContainer().setStyle({ opacity : this._fadeRate(pos)});
 					this._reelContainer().setStyle({ top : '-' + result_height + 'px'});
 					this._spin(pos + 0.25);
 				}.bind(this)
@@ -32,7 +31,7 @@ var Sourteo	=	Class.create({
 	}
 	,
 	initSpin : function(word){
-		this.spin(0);
+		this._spin(0);
 	}
 	,
 	_finish :  function(pos){
